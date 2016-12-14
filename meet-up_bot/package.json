@@ -1,0 +1,20 @@
+{
+  "name": "meet-up_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main_ari.js",
+  "scripts": {
+    "start": "node main_ari.js"
+  },
+  "author": "Ari",
+  "license": "ISC",
+  "dependencies": {
+    "beepboop-botkit": "^1.4.1",
+    "botkit": "^0.4.2",
+    "botkit-storage-postgres": "^0.1.0",
+    "jquery": "^3.1.1",
+    "node-wit": "^4.2.0",
+    "os": "^0.1.1",
+    "witbot": "^2.1.0"
+  }
+}
