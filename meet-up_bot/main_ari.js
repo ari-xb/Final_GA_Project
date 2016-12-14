@@ -17,9 +17,10 @@ var controller = Botkit.slackbot({
     // logLevel: 7
 })
 
-// connect the bot to a stream of messages
+// connect the bot to a stream of messages + added 'send_via_rtm: true' to reenable bot is typing.
 controller.spawn({
-  token: slackToken
+   token: slackToken,
+   send_via_rtm: true
   }).startRTM(function(err) {
   if (err) {
     throw new Error('Error connecting to slack: ', err)
@@ -30,45 +31,61 @@ controller.spawn({
 // bot listens to...
 controller.hears(['hello'],['direct_message','direct_mention','mention'],function(bot,message) {
 
-  bot.reply(message,'How can I be of service, beep.');
+  bot.replyWithTyping(message,'How can I be of service, beep.');
 
 });
+
+// testing to see if bot types
+//bot._send({ type: "typing", channel: message.channel });
+controller.hears(['busy'],['direct_message','direct_mention','mention'],function(bot,message) {
+
+  // bot.reply(message,'typing...');
+  bot.reply({ type: "typing", channel: message.channel });
+});
+
 
 controller.hears(['meetup'],['direct_message','direct_mention','mention'],function(bot,message) {
 
-  bot.reply(message,'getting that for you now...');
+  bot.reply(message,'getting that for you now...')
 
-});
 //
 // // make AJAX request to meetup.com
-// var settings = {
-//   url: 'https://api.meetup.com',  // required
-//   data: { zip: 11211,
-//         radius: 1,
-//         category: 25,
-//         order: members,
-//         sign: true }, // to go after the query string '?s='
-//   method: '/find/groups',  // default optional
-//   datatype: 'json'  // usually auto detected
-// }
-// //https://api.meetup.com/find/groups?zip=11211&radius=1&category=25&order=members&&sign=true
-// // make an AJAX request to meet up api
-// $.ajax(settings).done(function(res) {
-//
-//   var meetups = res.results; //results is the
-//   console.log(meetups);
-//
-//   // meetups.forEach(function(meetup) {
-//   //
-//   //   var $row = $('<h2>').append($('<a>') // create an a tag
-//   //   .attr('target', '_blank')  // adding attributes to the a tag
-//   //   .attr('href', 'http://www.imdb.com/title/' + movie.imdbID)  // forming the link
-//   //   .text(movie.Title)); // create an a tag with text of movie title in it.
-//   //
-//   //   $('#list').append($row)
-//   //
-//   // })
-// });
+  var settings = {
+    url: 'https://api.meetup.com',  // required
+    data: { zip: 11211,
+          radius: 1,
+          category: 25,
+          order: 'members',
+          sign: true }, // to go after the query string '?s='
+    method: '/find/groups',  // default optional
+    datatype: 'json'  // usually auto detected
+  }
+
+  console.log(settings);
+
+// // //https://api.meetup.com/find/groups?zip=11211&radius=1&category=25&order=members&&sign=true
+// // // make an AJAX request to meet up api
+    // var apiCall = function (settings) {
+    //   $.ajax(settings).done(function(res) {
+    //
+    //     var meetups = res.results; //results is the
+    //     console.log(meetups);
+    //
+    //     // meetups.forEach(function(meetup) {
+    //     //
+    //     //   var $row = $('<h2>').append($('<a>') // create an a tag
+    //     //   .attr('target', '_blank')  // adding attributes to the a tag
+    //     //   .attr('href', 'http://www.imdb.com/title/' + movie.imdbID)  // forming the link
+    //     //   .text(movie.Title)); // create an a tag with text of movie title in it.
+    //     //
+    //     //   $('#list').append($row)
+    //     //
+    //     // })
+    //   });
+    // };
+    // apiCall(settings);
+});
+
 
 // Wit.ai integration code example:
 // controller.hears('.*', 'direct_message,direct_mention', function (bot, message) {
