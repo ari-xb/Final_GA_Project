@@ -4,6 +4,7 @@ var Botkit = require('botkit')
 var slackToken = process.env.SLACK_TOKEN
 var $ = require('jquery'); //npm install jQuery
 var axios = require('axios')
+const Storage = require('./bot_storage');
 
 // var Witbot = require('witbot')
 // var witToken = process.env.WIT_TOKEN
@@ -33,7 +34,7 @@ controller.spawn({
 // bot listens to...
 controller.hears(['hello'],['direct_message','direct_mention','mention'],function(bot,message) {
 
-  bot.replyWithTyping(message,'How can I be of service, beep.');
+  bot.replyWithTyping(message,`Hi! :wave: how can I be of service, <@${message.user}>?`);
 
 });
 
@@ -42,45 +43,86 @@ controller.hears(['hello'],['direct_message','direct_mention','mention'],functio
 controller.hears(['busy'],['direct_message','direct_mention','mention'],function(bot,message) {
 
   // bot.reply(message,'typing...');
-  bot.replyWithTyping(message,'How can I be of service, now?');
+  bot.replyWithTyping(message,`Yes, <@${message.user}> I am very busy, but I can always make time for you:grinning:`);
+  console.log(message.user);
 });
 
 
 controller.hears(['meetup'],['direct_message','direct_mention','mention'],function(bot,message) {
 
-  bot.replyWithTyping(message,'getting that for you now...')
+  bot.reply(message,'getting that for you now...')
 //
 // // make AJAX request to meetup.com
-  var settings = 'https://api.meetup.com/find/events?photo-host=public&sig_id=213030423&fields=node.js&sig=7d8006176172cdd0d15c32eb983a08cdecf59fed';
-//  {
-    //https://api.meetup.com/find/groups?photo-host=public&page=5&text=ruby&sig_id=213030423&sig=57a89afda3eacca17d99c58187ff73b692871527
-// working searh for the text 'ruby'
-//    baseURL: 'https://api.meetup.com/',
-//    url: "/find/groups",  // required
-  //   data: {
-  //         zip: '11211',
-  //         radius: '1',
-  //         category: '25',
-  //         order: 'members',
-  //         sig_id: '213030423',
-  //         sig: '37c9d3f7211569dbf5599b620ba6eefb88794478'
-  //       }, // added Authed Signed URL.
-  //   method: 'get',  // default optional
-  //   dataType: 'json'  // usually auto detected
-  // }
-
-//var querystring = require('querystring');
-//axios.post('http://something.com/', querystring.stringify({ foo: 'bar' });
-
-// // //https://api.meetup.com/find/groups?zip=11211&radius=1&category=25&order=members&&sign=true
-// // // make an AJAX request to meet up api
-    // var apiCall = function (settings) {
-      axios.get(settings)
-      .then(function(res) {
+//   var settings = 'https://api.meetup.com/find/groups?photo-host=public&zip=3000&page=5&text=css&country=australia&sig_id=213030423&radius=5&sig=587a5330ff0818f016888e69fe29791eaf28b7f3';
+// //  {
+//     //https://api.meetup.com/find/groups?photo-host=public&page=5&text=ruby&sig_id=213030423&sig=57a89afda3eacca17d99c58187ff73b692871527
+// // working search for the text 'ruby'
+// //    baseURL: 'https://api.meetup.com/',
+// //    url: "/find/groups",  // required
+//   //   data: {
+//   //         zip: '11211',
+//   //         radius: '1',
+//   //         category: '25',
+//   //         order: 'members',
+//   //         sig_id: '213030423',
+//   //         sig: '37c9d3f7211569dbf5599b620ba6eefb88794478'
+//   //       }, // added Authed Signed URL.
+//   //   method: 'get',  // default optional
+//   //   dataType: 'json'  // usually auto detected
+//   // }
+//
+// //var querystring = require('querystring');
+// //axios.post('http://something.com/', querystring.stringify({ foo: 'bar' });
+//
+// // // //https://api.meetup.com/find/groups?zip=11211&radius=1&category=25&order=members&&sign=true
+// // // // make an AJAX request to meet up api
+//     // var apiCall = function (settings) {
+//       axios.get(settings)
+//       .then(function(res) {
     //
-        // var meetups = res.results; //results is the
-        console.log(res);
+    bot.replyAndUpdate(message,
+        {
+        "attachments" : [
+            {
+                "color": "#ed1c40",
+                "pretext": "Top 5 meet-ups:",
+                "author_name": "1",
+                "title": "MelbCSS",
+                "title_link": "https://www.meetup.com/MelbCSS/",
+                "text": "Next Meet-up: date "
+            	},{
+                "color": "#ed1c40",
+                "author_name": "2",
+                "title": "MelbCSS",
+                "title_link": "https://www.meetup.com/MelbCSS/",
+                "text": "Next Meet-up: date "
+            	},{
+                "color": "#ed1c40",
+                "author_name": "3",
+                "title": "MelbCSS",
+                "title_link": "https://www.meetup.com/MelbCSS/",
+                "text": "Next Meet-up: date "
+            	},{
+                "color": "#ed1c40",
+                "author_name": "4",
+                "title": "MelbCSS",
+                "title_link": "https://www.meetup.com/MelbCSS/",
+                "text": "Next Meet-up: date "
+            	},{
+                "color": "#ed1c40",
+                "author_name": "5",
+                "title": "MelbCSS",
+                "title_link": "https://www.meetup.com/MelbCSS/",
+                "text": "Next Meet-up: date "
+            	}
+        ]
+    });
+        // console.log(results);
 
+        // var meetups = res.results; //results is the
+        // console.log(res);
+
+        // colour of meetup 'Red' #ed1c40
         // meetups.forEach(function(meetup) {
         //
         //   var $row = $('<h2>').append($('<a>') // create an a tag
@@ -91,22 +133,26 @@ controller.hears(['meetup'],['direct_message','direct_mention','mention'],functi
         //   $('#list').append($row)
         //
         // })
-      })
-      .catch(function (error) {
-      console.log(error);
-      });
+      // .catch(function (error) {
+      // console.log(error);
+      // });
     // };
     // apiCall(settings);
 });
 
 // details to grab from meetup searches: maybe the first 5 indexes[0...4]
-// // [{
-//   "time":1481787000000, //time is in seconds from 1st Jan 1970 (Unix time)
-//   "group":{
+// https://api.meetup.com/find/groups?photo-host=public&zip=3000&page=5&text=css&country=australia&sig_id=213030423&radius=5&sig=587a5330ff0818f016888e69fe29791eaf28b7f3
+// // [
+//    {
+//   "next_event":{
+//    "time":1484118000000
+//    } - time is in seconds from 1st Jan 1970 (Unix time)
 //   "name":"St Kilda 3182"
-//   },
 //   "link":"https://www.meetup.com/St-Kilda-3182/events/230764040/"
-//   }] Use the name with the MU page to create a clickable link, and date of the next MU.
+//   }
+
+
+//  ] Use the name with the MU page to create a clickable link, and date of the next MU.
 
 // Wit.ai integration code example:
 // controller.hears('.*', 'direct_message,direct_mention', function (bot, message) {
