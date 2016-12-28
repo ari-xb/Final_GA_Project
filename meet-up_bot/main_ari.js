@@ -49,74 +49,92 @@ controller.hears(['busy'],['direct_message','direct_mention','mention'],function
 
 
 controller.hears(['meetup'],['direct_message','direct_mention','mention'],function(bot,message) {
+// first grab search prams?
+
+  bot.replyWithTyping(message,'OK, what keyword would you like to search for?')
+});
+
+controller.hears(['css'],['direct_message','direct_mention','mention'],function(bot,message) {
+// first grab search prams?
+
+  bot.replyWithTyping(message,'OK, near which Surburb?')
+});
+
+controller.hears(['melbourne'],['direct_message','direct_mention','mention'],function(bot,message) {
+// first grab search prams?
 
   bot.reply(message,'getting that for you now...')
-//
-// // make AJAX request to meetup.com
-//   var settings = 'https://api.meetup.com/find/groups?photo-host=public&zip=3000&page=5&text=css&country=australia&sig_id=213030423&radius=5&sig=587a5330ff0818f016888e69fe29791eaf28b7f3';
-// //  {
-//     //https://api.meetup.com/find/groups?photo-host=public&page=5&text=ruby&sig_id=213030423&sig=57a89afda3eacca17d99c58187ff73b692871527
-// // working search for the text 'ruby'
-// //    baseURL: 'https://api.meetup.com/',
-// //    url: "/find/groups",  // required
-//   //   data: {
-//   //         zip: '11211',
-//   //         radius: '1',
-//   //         category: '25',
-//   //         order: 'members',
-//   //         sig_id: '213030423',
-//   //         sig: '37c9d3f7211569dbf5599b620ba6eefb88794478'
-//   //       }, // added Authed Signed URL.
-//   //   method: 'get',  // default optional
-//   //   dataType: 'json'  // usually auto detected
-//   // }
-//
-// //var querystring = require('querystring');
-// //axios.post('http://something.com/', querystring.stringify({ foo: 'bar' });
-//
-// // // //https://api.meetup.com/find/groups?zip=11211&radius=1&category=25&order=members&&sign=true
-// // // // make an AJAX request to meet up api
-//     // var apiCall = function (settings) {
-//       axios.get(settings)
-//       .then(function(res) {
-    //
-    bot.replyAndUpdate(message,
-        {
-        "attachments" : [
-            {
+
+        bot.replyAndUpdate(message,{ "attachments" : [
+              {
                 "color": "#ed1c40",
-                "pretext": "Top 5 meet-ups:",
+                "pretext": "Top 5 meet-ups: Keyword: css, within 5 miles of Melbourne",
                 "author_name": "1",
-                "title": "MelbCSS",
-                "title_link": "https://www.meetup.com/MelbCSS/",
-                "text": "Next Meet-up: date "
+                "title": "MelbCSS", //"name":
+                "title_link": "https://www.meetup.com/MelbCSS/", // "link":
+                "thumb_url" : "http://photos1.meetupstatic.com/photos/event/7/c/7/6/thumb_415231862.jpeg", //"group_photo":{ "thumb_link":
+                "text": "Next Meet-up: Wed Feb 1, 6:00 PM"
             	},{
                 "color": "#ed1c40",
                 "author_name": "2",
-                "title": "MelbCSS",
-                "title_link": "https://www.meetup.com/MelbCSS/",
-                "text": "Next Meet-up: date "
+                "title": "Melbourne Compass & Sass Group",
+                "title_link": "https://www.meetup.com/Melbourne-Compass-Sass-Meetup/",
+                "thumb_url" : "http://photos2.meetupstatic.com/photos/member/4/e/f/4/thumb_161420212.jpeg",
+                "text": "Next Meet-up: TBA"
             	},{
                 "color": "#ed1c40",
                 "author_name": "3",
-                "title": "MelbCSS",
-                "title_link": "https://www.meetup.com/MelbCSS/",
-                "text": "Next Meet-up: date "
+                "title": "Ruby and Rails Melbourne",
+                "title_link": "https://www.meetup.com/Ruby-On-Rails-Oceania-Melbourne/",
+                "thumb_url" : "http://photos4.meetupstatic.com/photos/event/2/c/3/a/thumb_271451322.jpeg",
+                "text": "Next Meet-up: Wed Jan 11, 6:00 PM"
             	},{
                 "color": "#ed1c40",
                 "author_name": "4",
-                "title": "MelbCSS",
-                "title_link": "https://www.meetup.com/MelbCSS/",
-                "text": "Next Meet-up: date "
+                "title": "Female Coders Lab (Melbourne)",
+                "title_link": "https://www.meetup.com/Female-Coders-Lab-Melbourne/",
+                "thumb_url" : "http://photos3.meetupstatic.com/photos/event/3/d/a/9/thumb_440055785.jpeg",
+                "text": "Next Meet-up: Thu, Jan 12, 2017 6:00 PM"
             	},{
                 "color": "#ed1c40",
                 "author_name": "5",
-                "title": "MelbCSS",
-                "title_link": "https://www.meetup.com/MelbCSS/",
-                "text": "Next Meet-up: date "
-            	}
-        ]
-    });
+                "title": "Women Who Code Melbourne",
+                "title_link": "https://www.meetup.com/Women-Who-Code-Melbourne/",
+                "thumb_url" : "http://photos3.meetupstatic.com/photos/event/b/7/4/c/thumb_431686924.jpeg",
+                "text": "Next Meet-up: TBA"
+            	  }
+            ]})});
+
+//
+// make AJAX request to meetup.com
+//   var settings = 'https://api.meetup.com/find/groups?photo-host=public&zip=3000&page=5&text=css&country=australia&sig_id=213030423&radius=5&sig=587a5330ff0818f016888e69fe29791eaf28b7f3';
+//  {
+//     //https://api.meetup.com/find/groups?photo-host=public&page=5&text=ruby&sig_id=213030423&sig=57a89afda3eacca17d99c58187ff73b692871527
+// working search for the text 'ruby'
+//    baseURL: 'https://api.meetup.com/',
+//    url: "/find/groups",  // required
+//   data: {
+//         zip: '11211',
+//         radius: '1',
+//         category: '25',
+//         order: 'members',
+//         sig_id: '213030423',
+//         sig: '37c9d3f7211569dbf5599b620ba6eefb88794478'
+//       }, // added Authed Signed URL.
+//   method: 'get',  // default optional
+//   dataType: 'json'  // usually auto detected
+// }
+//
+// var querystring = require('querystring');
+// axios.post('http://something.com/', querystring.stringify({ foo: 'bar' });
+//
+// https://api.meetup.com/find/groups?zip=11211&radius=1&category=25&order=members&&sign=true
+//  make an AJAX request to meet up api
+// var apiCall = function (settings) {
+//       axios.get(settings).then(function(res) {
+//         var firstName = res[0]value
+
+
         // console.log(results);
 
         // var meetups = res.results; //results is the
@@ -133,16 +151,14 @@ controller.hears(['meetup'],['direct_message','direct_mention','mention'],functi
         //   $('#list').append($row)
         //
         // })
-      // .catch(function (error) {
-      // console.log(error);
-      // });
-    // };
-    // apiCall(settings);
-});
 
+//     }).catch(function (error) {
+//           console.log(error);
+//     });
+    // apiCall(settings);
 // details to grab from meetup searches: maybe the first 5 indexes[0...4]
 // https://api.meetup.com/find/groups?photo-host=public&zip=3000&page=5&text=css&country=australia&sig_id=213030423&radius=5&sig=587a5330ff0818f016888e69fe29791eaf28b7f3
-// // [
+// [
 //    {
 //   "next_event":{
 //    "time":1484118000000
