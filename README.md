@@ -6,22 +6,27 @@ Have you been at work and wondered what meet-ups might be on? Well what if you c
 [User stories](https://)
 [Wireframes](https://)
 
-* A couple paragraphs about the general approach you took
-*
-2) What and why you chose certain tech, to make it work?
+In JavaScript first I had to write out possible conversations with the bot, and its responses. Then grab data from the user to use in the Meet-up API call to run a search. Once the API response is received then display the first 5 results and only particular data from the JSON file. The data is displayed using Slack's inbuilt 'attachments' feature.
+
 * The technologies used
-    * Node.js
-    * Beep boop (hosting)
-    * Meetup API
-    * Slack RTM
-    * Slack API
-    * JavaScript
-    * Future: Fully integrate Wit.ai
+    * Node.js (To use the Bot-Kit NPM, made things easier)
+    * Beep Boop (Hosting of the Bot)
+    * Meetup API (Data to display search results)
+    * Slack RTM (Front End Interaction with the Bot)
+    * Slack API (Integration)
+    * JavaScript (To write the Bot app)
 
-3) Issues I had to overcome along the way?
+Issues:
+The connection to the Meet-up API is not working every time.
+Unresolved (NLP) Natural Language Processing with Wit.ai.
 
-4) Future features - things I didn't get time to add. What I learnt
-* Descriptions of any unsolved problems or major hurdles you had to overcome
+Future features:
+Change the search radius(currently 5 miles)
+(NLP) Natural Language Processing with Wit.ai
 
-5) How to start using it, help commands list
-* Installation instructions for any dependencies
+
+Installation instructions
+
+Invite the bot to your Slack channel with /invite @meet-up_bot
+Simply type the keywords Hello, Busy, or Meetup.
+When you type Meet-up, just follow the prompts to run a search.
