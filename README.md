@@ -1,6 +1,6 @@
 # FINAL GA PROJECT - Slack Meet-up Bot
 
-![alt text](http://i.imgur.com/COTUyaV.png "Slack meetup bot screen shot")
+![alt text](http://i.imgur.com/klFxsAu.png "Slack meetup bot screen shot")
 
 Have you been at work and wondered what meet-ups might be on? Well what if you could check without leaving slack? Introducing the @meet-up_bot for Slack.
 
