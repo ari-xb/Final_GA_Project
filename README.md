@@ -3,18 +3,17 @@
 ![alt text](http://i.imgur.com/COTUyaV.png "Slack meetup bot screen shot")
 
 Have you been at work and wondered what meet-ups might be on? Well what if you could check without leaving slack? Introducing the @meet-up_bot for Slack.
-[User stories](https://)
-[Wireframes](https://)
 
-In JavaScript first I had to write out possible conversations with the bot, and its responses. Then grab data from the user to use in the Meet-up API call to run a search. Once the API response is received then display the first 5 results and only particular data from the JSON file. The data is displayed using Slack's inbuilt 'attachments' feature.
-
-* The technologies used
-    * Node.js (To use the Bot-Kit NPM, made things easier)
-    * Beep Boop (Hosting of the Bot)
-    * Meetup API (Data to display search results)
-    * Slack RTM (Front End Interaction with the Bot)
-    * Slack API (Integration)
-    * JavaScript (To write the Bot app)
+|In JavaScript first I had to write out possible conversations with the bot, and its responses. Then grab data from the user to use in the Meet-up API call to run a search. Once the API response is received then display the first 5 results and only particular data from the JSON file. The data is displayed using Slack's inbuilt 'attachments' feature.|
+| :------------------------------------:|
+| [User stories](https://) |
+| [Wireframes](https://) |
+| Node.js (To use the Bot-Kit NPM, made things easier) |
+|Beep Boop (Hosting of the Bot) |
+|Meetup API (Data to display search results)|
+|Slack RTM (Front End Interaction with the Bot)|
+|Slack API (Integration)|
+|JavaScript (To write the Bot app)|
 
 Issues:
 The connection to the Meet-up API is not working every time.
@@ -24,8 +23,7 @@ Future features:
 Change the search radius(currently 5 miles)
 (NLP) Natural Language Processing with Wit.ai
 
-
-Installation instructions
+Installation instructions:
 
 Invite the bot to your Slack channel with /invite @meet-up_bot
 Simply type the keywords Hello, Busy, or Meetup.
