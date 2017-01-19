@@ -1,0 +1,39 @@
+{
+  "name": "witbot",
+  "version": "2.1.0",
+  "description": "A simple node.js module for making bots with wit.ai",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeepBoopHQ/witbot.git"
+  },
+  "keywords": [
+    "slack",
+    "wit",
+    "wit.ai",
+    "botkit",
+    "bots",
+    "slackbot"
+  ],
+  "bugs": {
+    "url": "https://github.com/BeepBoopHQ/witbot/issues"
+  },
+  "homepage": "https://github.com/BeepBoopHQ/witbot#readme",
+  "dependencies": {
+    "botkit": "^0.4.3",
+    "node": "^6.6.0",
+    "node-wit": "^2.1.0"
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "author": "Ari",
+  "license": "ISC",
+  "devDependencies": {
+    "node-wit": "^2.1.0"
+  }
+}

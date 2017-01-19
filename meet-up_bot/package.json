@@ -2,7 +2,7 @@
   "name": "meet-up_bot",
   "version": "1.0.0",
   "description": "",
-  "main": "main_ari.js",
+  "main": "main.js",
   "scripts": {
     "start": "node main_ari.js"
   },

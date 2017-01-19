@@ -106,7 +106,7 @@ controller.hears(['melbourne'],['direct_message','direct_mention','mention'],fun
             ]})});
 
 //
-// make AJAX request to meetup.com
+// make AXIOS request to meetup.com
 //   var settings = 'https://api.meetup.com/find/groups?photo-host=public&zip=3000&page=5&text=css&country=australia&sig_id=213030423&radius=5&sig=587a5330ff0818f016888e69fe29791eaf28b7f3';
 //  {
 //     //https://api.meetup.com/find/groups?photo-host=public&page=5&text=ruby&sig_id=213030423&sig=57a89afda3eacca17d99c58187ff73b692871527
@@ -145,7 +145,7 @@ controller.hears(['melbourne'],['direct_message','direct_mention','mention'],fun
         //
         //   var $row = $('<h2>').append($('<a>') // create an a tag
         //   .attr('target', '_blank')  // adding attributes to the a tag
-        //   .attr('href', 'http://www.imdb.com/title/' + movie.imdbID)  // forming the link
+        //   .attr('href', 'http://)  // forming the link
         //   .text(movie.Title)); // create an a tag with text of movie title in it.
         //
         //   $('#list').append($row)
@@ -176,11 +176,4 @@ controller.hears(['melbourne'],['direct_message','direct_mention','mention'],fun
 // });
 // witbot.hears('hi', 0.5, function (bot, message, outcome) {
 //   bot.reply(message, 'Hi there!')
-// });
-
-// // on today's menu
-// controller.hears(['lunch', 'menu'],['direct_message','direct_mention','mention'],function(bot,message) {
-//
-//   bot.reply(message,'The menu for today is Mexican burritos.');
-//
 // });
