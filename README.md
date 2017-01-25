@@ -27,4 +27,4 @@ Installation instructions:
 
 Invite the bot to your Slack channel with /invite @meet-up_bot
 Simply type the keywords Hello, Busy, or Meetup.
-When you type Meet-up, just follow the prompts to run a search.
+When you type 'meetup', just follow the prompts to run a search.
