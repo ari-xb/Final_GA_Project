@@ -1,2 +1,2 @@
-name: Slackchefbot
-description: A bot that can set up a lunch order, add people to it and tally up the total cost 
+name: Slackmeetupbot
+description: A bot that can search for local Meet-ups and display them in slack for the user.

@@ -4,7 +4,7 @@
 
 Have you been at work and wondered what meet-ups might be on? Well what if you could check without leaving slack? Introducing the @meet-up_bot for Slack.
 
-|In JavaScript first I had to write out possible conversations with the bot, and its responses. Then grab data from the user to use in the Meet-up API call to run a search. Once the API response is received then display the first 5 results and only particular data from the JSON file. The data is displayed using Slack's inbuilt 'attachments' feature.|
+|In JavaScript first I had to write out possible conversations with the bot and it's responses. Then grab input data from the user to use in the Meet-up API call to run a search. Once the API response is received then to display the first 5 results and only relevant data from the JSON file. The data is displayed using Slack's inbuilt 'attachments' feature, which has limited options and a set layout.|
 | :------------------------------------:|
 | [User stories](https://) |
 | [Wireframes](https://) |
