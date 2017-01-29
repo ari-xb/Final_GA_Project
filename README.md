@@ -25,7 +25,7 @@ Change the search radius(currently 5 miles)
 
 Installation instructions:
 
-The bot first needs to be added to your slack team's as a custom integration, go (https://api.slack.com/custom-integrations "here") for more info.
+The bot first needs to be added to your slack team's as a custom integration, go [here](https://api.slack.com/custom-integrations) for more info.
 Invite the bot to your Slack channel with /invite @meet-up_bot
 Simply type the keywords Hello, Busy, or Meetup.
 When you type 'meetup', just follow the prompts to run a search.
