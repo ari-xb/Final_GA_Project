@@ -20,8 +20,8 @@ The connection to the Meet-up API is not working every time.
 Unresolved (NLP) Natural Language Processing with Wit.ai.
 
 Future features:
-Change the search radius(currently 5 miles)
-(NLP) Natural Language Processing with Wit.ai
++Change the search radius(currently 5 miles)
++(NLP) Natural Language Processing with Wit.ai
 
 Installation instructions:
 
