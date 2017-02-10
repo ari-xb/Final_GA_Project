@@ -8,12 +8,12 @@ Have you been at work and wondered what meet-ups might be on? Well what if you c
 | :------------------------------------:|
 | [User stories](https://) |
 | [Wireframes](https://) |
-| Node.js (To use the Bot-Kit NPM, made things easier) |
-| Beep Boop (Hosting of the Bot) |
+| Node.js (To use the Bot-Kit NPM, using it made things easier) |
+| Beep Boop (Hosting of the Bot files for slack to access) |
 | Meetup API (Data to display search results)|
 | Slack RTM (Front End Interaction with the Bot)|
-| Slack API (Integration)|
-| JavaScript (To write the Bot app)|
+| Slack API (For the bot to run in Slack)|
+| JavaScript ES6 |
 
 Issues:
 The connection to the Meet-up API is not working every time.
