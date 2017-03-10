@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "node main_ari.js"
+    "start": "node main.js"
   },
   "author": "Ari",
   "license": "ISC",

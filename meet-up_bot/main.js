@@ -1,4 +1,3 @@
-// copy of Duyen's main.js file.
 
 var Botkit = require('botkit')
 var slackToken = process.env.SLACK_TOKEN
@@ -20,7 +19,7 @@ var controller = Botkit.slackbot({
     // logLevel: 7
 })
 
-// connect the bot to a stream of messages + added 'send_via_rtm: true' to reenable bot is typing.
+// connect the bot to a stream of messages + added 'send_via_rtm: true' to re-enable bot is typing.
 controller.spawn({
    token: slackToken,
    send_via_rtm: true
