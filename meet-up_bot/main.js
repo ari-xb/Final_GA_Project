@@ -48,21 +48,23 @@ controller.hears(['busy'],['direct_message','direct_mention','mention'],function
 
 
 controller.hears(['meetup'],['direct_message','direct_mention','mention'],function(bot,message) {
-// first grab search prams?
+// first initiate meetup seach
 
   bot.replyWithTyping(message,'OK, what keyword would you like to search for?')
 });
 
 controller.hears(['css'],['direct_message','direct_mention','mention'],function(bot,message) {
-// first grab search prams?
+// 2nd grab search keyword prams
 
-  bot.replyWithTyping(message,'OK, near which Surburb?')
+  bot.replyWithTyping(message,'OK, around which Postcode should I search?')
 });
 
-controller.hears(['melbourne'],['direct_message','direct_mention','mention'],function(bot,message) {
-// first grab search prams?
+controller.hears(['3000'],['direct_message','direct_mention','mention'],function(bot,message) {
+// 3rd grab zip/postcode - default is 5 miles of that postcode
 
   bot.reply(message,'getting that for you now...')
+
+// 4th display the first 5 search results(or less)
 
         bot.replyAndUpdate(message,{ "attachments" : [
               {
