@@ -10,6 +10,7 @@ const Storage = require('./bot_storage');
 // var witbot = Witbot(witToken)
 
 // todo add custom modules for NLP - wit.ai
+// Also need to host this online(Beep Boop, is an option) so anyone can use it.
 
 var controller = Botkit.slackbot({
     // reconnects to Slack RTM after failed connection
