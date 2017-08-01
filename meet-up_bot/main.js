@@ -15,18 +15,24 @@ const Storage = require('./bot_storage');
 var controller = Botkit.slackbot({
     // reconnects to Slack RTM after failed connection
     retry: Infinity,
-    debug: false
+    debug: false,
+    disable_startup_messages: false,
     // verbose logging
     // logLevel: 7
+    // Delivery Confirmation for RTM messages, good if needing to wait for an API to return data.
+    require_delivery: true
 })
 
 // connect the bot to a stream of messages + added 'send_via_rtm: true' to re-enable bot is typing.
 controller.spawn({
    token: slackToken,
    send_via_rtm: true
-  }).startRTM(function(err) {
+  }).startRTM(function(err,bot,payload) {
   if (err) {
     throw new Error('Error connecting to slack: ', err)
+  }
+  if (payload) {
+    console.log(JSON.stringify(payload, null, 2)); // Only for testing
   }
   console.log('Connected to slack');
 });
@@ -35,10 +41,10 @@ controller.spawn({
 controller.hears(['hello'],['direct_message','direct_mention','mention'],function(bot,message) {
 
   bot.replyWithTyping(message,`Hi! :wave: how can I be of service, <@${message.user}>?`);
-
 });
 
-// testing to see if bot types
+
+
 //bot._send({ type: "typing", channel: message.channel });
 controller.hears(['busy'],['direct_message','direct_mention','mention'],function(bot,message) {
 
@@ -46,7 +52,6 @@ controller.hears(['busy'],['direct_message','direct_mention','mention'],function
   bot.replyWithTyping(message,`Yes, <@${message.user}> I am very busy, but I can always make time for you:grinning:`);
   console.log(message.user);
 });
-
 
 controller.hears(['meetup'],['direct_message','direct_mention','mention'],function(bot,message) {
 // first initiate meetup seach
@@ -61,7 +66,7 @@ controller.hears(['css'],['direct_message','direct_mention','mention'],function(
 });
 
 controller.hears(['3000'],['direct_message','direct_mention','mention'],function(bot,message) {
-// 3rd grab zip/postcode - default is 5 miles of that postcode
+// 3rd grab zip/postcode - default is 5 miles(8kms) of that postcode
 
   bot.reply(message,'getting that for you now...')
 
